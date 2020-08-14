@@ -3,36 +3,29 @@ package model
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 )
 
 // StockQuote data type
 type StockQuote struct {
 	Symbol   string
 	Date     string
-	Open     string
-	High     string
-	Low      string
-	Close    string
-	AdjClose string
-	Volume   string
+	Open     float64
+	High     float64
+	Low      float64
+	Close    float64
+	AdjClose float64
+	Volume   float64
 }
 
 // ToJSON generates the JSON serialization for the model
 func (data *StockQuote) ToJSON() string {
-	jsonData, err := json.Marshal(data)
-
-	if err != nil {
-
-		log.Fatal(err)
-	}
-
+	jsonData, _ := json.Marshal(data)
 	return string(jsonData)
 }
 
-// ToString generates a debugable and easy to read string from the model
+// ToString generates a debuggable and easy to read string from the model
 func (data *StockQuote) ToString() string {
-	return fmt.Sprintf("%s => Data=%s, Open=%s, High=%s, Low=%s, Close=%s, AdjClose=%s, Volume=%s",
+	return fmt.Sprintf("%s => Data=%s, Open=%f, High=%f, Low=%f, Close=%f, AdjClose=%f, Volume=%f",
 		data.Symbol,
 		data.Date,
 		data.Open,

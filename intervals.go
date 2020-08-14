@@ -1,4 +1,4 @@
-package provider
+package main
 
 // Interval type
 type Interval string

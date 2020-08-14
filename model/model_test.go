@@ -6,12 +6,12 @@ func TestStockQuote_ToJSON(t *testing.T) {
 	type fields struct {
 		Symbol   string
 		Date     string
-		Open     string
-		High     string
-		Low      string
-		Close    string
-		AdjClose string
-		Volume   string
+		Open     float64
+		High     float64
+		Low      float64
+		Close    float64
+		AdjClose float64
+		Volume   float64
 	}
 	tests := []struct {
 		name   string
@@ -43,12 +43,12 @@ func TestStockQuote_ToString(t *testing.T) {
 	type fields struct {
 		Symbol   string
 		Date     string
-		Open     string
-		High     string
-		Low      string
-		Close    string
-		AdjClose string
-		Volume   string
+		Open     float64
+		High     float64
+		Low      float64
+		Close    float64
+		AdjClose float64
+		Volume   float64
 	}
 	tests := []struct {
 		name   string
