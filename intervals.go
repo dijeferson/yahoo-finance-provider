@@ -1,4 +1,4 @@
-package main
+package yahoofinance
 
 // Interval type
 type Interval string
