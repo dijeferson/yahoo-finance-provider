@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-// FetchURL fetches URL content as string
+// FetchURL fetches URL content and return as string.
 func fetchURL(url string) string {
 	contents, err := fetchBytesFromURL(url)
 

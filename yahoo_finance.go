@@ -70,7 +70,7 @@ func parse(symbol string, data string) []model.StockQuote {
 func readCSVFromString(contents string, removeHeader bool) ([][]string, error) {
 	lines, err := csv.NewReader(strings.NewReader(contents)).ReadAll()
 
-	if err != nil {
+	if err != nil || len(lines) == 0 {
 		return [][]string{}, err
 	}
 
