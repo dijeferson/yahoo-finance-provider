@@ -17,11 +17,11 @@ func FetchDailyQuoteHistory(symbol string) []StockQuote {
 
 // FetchUntilNow fetches stock quote values for a given symbol from a startDate until now, separated by interval.
 func FetchUntilNow(symbol string, startDate int64, interval interval.Interval) []StockQuote {
-	return Fetch(startDate, -1, symbol, interval)
+	return Fetch(symbol, startDate, -1, interval)
 }
 
 // Fetch fetches stock quotes for a given symbol, in a given timespan (startDate and endDate), separated by interval.
-func Fetch(startDate int64, endDate int64, symbol string, interval interval.Interval) []StockQuote {
+func Fetch(symbol string, startDate int64, endDate int64, interval interval.Interval) []StockQuote {
 	if endDate == -1 {
 		endDate = time.Now().Unix()
 	}
