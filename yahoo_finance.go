@@ -5,22 +5,23 @@ import (
 	"log"
 	"strings"
 	"time"
+	"github.com/dijeferson/yahoo-finance-provider/interval"
 )
 
 const baseURL = "https://query1.finance.yahoo.com/v7/finance/download/%s?period1=%d&period2=%d&interval=%s&events=history"
 
 // FetchDailyQuoteHistory fetches daily stock quote values from 1970-01-01 until today for a given symbol.
 func FetchDailyQuoteHistory(symbol string) []StockQuote {
-	return FetchUntilNow(symbol, 0, _1d)
+	return FetchUntilNow(symbol, 0, interval.OneDays)
 }
 
 // FetchUntilNow fetches stock quote values for a given symbol from a startDate until now, separated by interval.
-func FetchUntilNow(symbol string, startDate int64, interval Interval) []StockQuote {
+func FetchUntilNow(symbol string, startDate int64, interval interval.Interval) []StockQuote {
 	return Fetch(startDate, -1, symbol, interval)
 }
 
 // Fetch fetches stock quotes for a given symbol, in a given timespan (startDate and endDate), separated by interval.
-func Fetch(startDate int64, endDate int64, symbol string, interval Interval) []StockQuote {
+func Fetch(startDate int64, endDate int64, symbol string, interval interval.Interval) []StockQuote {
 	if endDate == -1 {
 		endDate = time.Now().Unix()
 	}
