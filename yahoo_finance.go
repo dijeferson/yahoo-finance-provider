@@ -2,10 +2,10 @@ package yahoofinance
 
 import (
 	"fmt"
+	"github.com/dijeferson/yahoo-finance-provider/interval"
 	"log"
 	"strings"
 	"time"
-	"github.com/dijeferson/yahoo-finance-provider/interval"
 )
 
 const baseURL = "https://query1.finance.yahoo.com/v7/finance/download/%s?period1=%d&period2=%d&interval=%s&events=history"
@@ -63,5 +63,3 @@ func parse(symbol string, data string) []StockQuote {
 
 	return stockList
 }
-
-

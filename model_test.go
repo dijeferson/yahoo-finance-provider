@@ -1,6 +1,9 @@
 package yahoofinance
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 type fields struct {
 	Symbol   string
@@ -49,7 +52,7 @@ func TestStockQuote_ToJSON(t *testing.T) {
 	}
 }
 
-func TestStockQuote_ToString(t *testing.T) {
+func TestStockQuote_String(t *testing.T) {
 	tests := []struct {
 		name   string
 		fields fields
@@ -78,7 +81,8 @@ func TestStockQuote_ToString(t *testing.T) {
 				AdjClose: tt.fields.AdjClose,
 				Volume:   tt.fields.Volume,
 			}
-			if got := data.ToString(); got != tt.want {
+
+			if got := fmt.Sprint(data); got != tt.want {
 				t.Errorf("StockQuote.ToString() = %v, want %v", got, tt.want)
 			}
 		})
