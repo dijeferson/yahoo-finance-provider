@@ -48,7 +48,7 @@ func Test_readCSVFromString(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name: "Sucess no header",
+			name: "Success no header",
 			args: args{contents: "A,B", removeHeader: false},
 			want: [][]string{
 				{"A", "B"},
@@ -56,7 +56,7 @@ func Test_readCSVFromString(t *testing.T) {
 			wantErr: false,
 		},
 		{
-			name: "Sucess with header",
+			name: "Success with header",
 			args: args{contents: "field1,field2\nA,B", removeHeader: true},
 			want: [][]string{
 				{"A", "B"},
@@ -64,19 +64,19 @@ func Test_readCSVFromString(t *testing.T) {
 			wantErr: false,
 		},
 		{
-			name:    "Sucess with empty input and removeHeader",
+			name:    "Success with empty input and removeHeader",
 			args:    args{contents: "", removeHeader: true},
 			want:    [][]string{},
 			wantErr: false,
 		},
 		{
-			name:    "Sucess with empty input and dont removeHeader",
+			name:    "Success with empty input and dont removeHeader",
 			args:    args{contents: "", removeHeader: false},
 			want:    [][]string{},
 			wantErr: false,
 		},
 		{
-			name:    "Sucess with removeHeader when no header",
+			name:    "Success with removeHeader when no header",
 			args:    args{contents: "A,B", removeHeader: true},
 			want:    [][]string{},
 			wantErr: false,

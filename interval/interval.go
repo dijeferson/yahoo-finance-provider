@@ -21,4 +21,3 @@ const (
 	ThirtyDays     Interval = "1mo"
 	NinetyDays     Interval = "3mo"
 )
-
