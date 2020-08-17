@@ -44,6 +44,7 @@ import (
 	"fmt"
 	"time"
 	"github.com/dijeferson/yahoo-finance-provider"
+    "github.com/dijeferson/yahoo-finance-provider/interval"
 )
 
 func main() {
