@@ -24,7 +24,7 @@ func (data *StockQuote) ToJSON() string {
 }
 
 // ToString generates a debuggable and easy to read string from the model
-func (data *StockQuote) ToString() string {
+func (data *StockQuote) String() string {
 	return fmt.Sprintf("%s => Data=%s, Open=%f, High=%f, Low=%f, Close=%f, AdjClose=%f, Volume=%f",
 		data.Symbol,
 		data.Date,
