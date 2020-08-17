@@ -1,7 +1,7 @@
 # Yahoo Finance Provider
 
 [![Build Status](https://travis-ci.com/dijeferson/yahoo-finance-provider.svg?branch=mainline)](https://travis-ci.com/dijeferson/yahoo-finance-provider)
-[![Go Report Card](https://goreportcard.com/badge/github.com/dijeferson/yahoo-finance-provider)](https://goreportcard.com/report/github.com/dijeferson/yahoo-finance-provider)
+[![Go Report Card](https://goreportcard.com/badge/github.com/dijeferson/yahoo-finance-provider?)](https://goreportcard.com/report/github.com/dijeferson/yahoo-finance-provider)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/dijeferson/yahoo-finance-provider)
 [![License MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](https://github.com/dijeferson/yahoo-finance-provider#license-mit)
 
