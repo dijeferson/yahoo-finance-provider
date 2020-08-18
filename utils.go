@@ -3,8 +3,6 @@ package yahoofinance
 import (
 	"encoding/csv"
 	"fmt"
-	"io/ioutil"
-	"net/http"
 	"strconv"
 	"strings"
 )
@@ -18,33 +16,6 @@ func convertToFloat64(value string) (float64, error) {
 	}
 
 	return result, nil
-}
-
-// FetchURL fetches URL content and return as string.
-func fetchURL(url string) (string, error) {
-	contents, err := fetchBytesFromURL(url)
-
-	if err != nil {
-		return "", fmt.Errorf("could not fetch url %v. Resonse error %v", url, err)
-	}
-
-	return string(contents), nil
-}
-
-func fetchBytesFromURL(url string) ([]byte, error) {
-	res, err := http.Get(url)
-	if err != nil {
-		return []byte{}, err
-	}
-
-	contents, err := ioutil.ReadAll(res.Body)
-	res.Body.Close()
-
-	if err != nil {
-		return []byte{}, err
-	}
-
-	return contents, nil
 }
 
 // ReadCSVFromString reads and parses CSV from a given string.
