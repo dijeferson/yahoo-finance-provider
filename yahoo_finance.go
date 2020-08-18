@@ -52,12 +52,31 @@ func parse(symbol string, data string) ([]StockQuote, error) {
 	// Loop through lines & turn into object
 	for _, columns := range lines {
 		open, err := convertToFloat64(columns[1])
-		high, err := convertToFloat64(columns[2])
-		low, err := convertToFloat64(columns[3])
-		closure, err := convertToFloat64(columns[4])
-		adjClose, err := convertToFloat64(columns[5])
-		volume, err := convertToFloat64(columns[6])
+		if err != nil {
+			return stockList, err
+		}
 
+		high, err := convertToFloat64(columns[2])
+		if err != nil {
+			return stockList, err
+		}
+
+		low, err := convertToFloat64(columns[3])
+		if err != nil {
+			return stockList, err
+		}
+
+		closure, err := convertToFloat64(columns[4])
+		if err != nil {
+			return stockList, err
+		}
+
+		adjClose, err := convertToFloat64(columns[5])
+		if err != nil {
+			return stockList, err
+		}
+
+		volume, err := convertToFloat64(columns[6])
 		if err != nil {
 			return stockList, err
 		}
