@@ -29,7 +29,7 @@ func TestConvertToFloat64(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := convertToFloat64(tt.input); got != tt.want {
+			if got, _ := convertToFloat64(tt.input); got != tt.want {
 				t.Errorf("ConvertToFloat64() = %v, want %v", got, tt.want)
 			}
 		})

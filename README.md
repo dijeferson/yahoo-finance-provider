@@ -25,7 +25,7 @@ import (
 )
 
 func main() {
-	response := yahoofinance.FetchDailyQuoteHistory("MSFT")
+	response, _ := yahoofinance.FetchDailyQuoteHistory("MSFT")
 
 	for _, stock := range response {
 		fmt.Println(stock.ToJSON())
@@ -50,7 +50,7 @@ import (
 func main() {
 	// currentTime - 15 minutes
 	start := time.Now().Unix() - 900
-	response := yahoofinance.FetchUntilNow("MSFT", start, interval.FiveMinutes)
+	response, _ := yahoofinance.FetchUntilNow("MSFT", start, interval.FiveMinutes)
 
 	for _, stock := range response {
 		fmt.Println(stock.ToJSON())
