@@ -13,52 +13,52 @@ Go client for [YahooFinance](https://finance.yahoo.com) stock quote historical a
 
 ## Usage and Examples
 
-### 1. Historical stock quote data for MSFT 
+### 1. Historical stock quote data for MSFT
 
 ```go
 package main
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/dijeferson/yahoo-finance-provider"
+    "github.com/dijeferson/yahoo-finance-provider"
 )
 
 func main() {
-	response, _ := yahoofinance.FetchDailyQuoteHistory("MSFT")
+    response, _ := yahoofinance.FetchDailyHistoricQuote("MSFT")
 
-	for _, stock := range response {
-		fmt.Println(stock.ToJSON())
-	}
+    for _, stock := range response {
+        fmt.Println(stock.ToJSON())
+    }
 }
 ```
 
-### 2. Latest stock quote data for MSFT 
+### 2. Latest stock quote data for MSFT
 
-Use the `interval` type to specify the aggregation. In the example below, the last 15 minutes of stock values for MSFT, aggregated by 5 min averages.  
+Use the `interval` type to specify the aggregation. In the example below, the last 15 minutes of stock values for MSFT, aggregated by 5 min averages.
 
 ```go
 package main
 
 import (
-	"fmt"
-	"time"
-	"github.com/dijeferson/yahoo-finance-provider"
+    "fmt"
+    "time"
+    "github.com/dijeferson/yahoo-finance-provider"
     "github.com/dijeferson/yahoo-finance-provider/interval"
 )
 
 func main() {
-	// currentTime - 15 minutes
-	start := time.Now().Unix() - 900
-	response, _ := yahoofinance.FetchUntilNow("MSFT", start, interval.FiveMinutes)
+    // currentTime - 15 minutes
+    start := time.Now().Unix() - 900
+    response, _ := yahoofinance.FetchUntilNow("MSFT", start, interval.FiveMinutes)
 
-	for _, stock := range response {
-		fmt.Println(stock.ToJSON())
-	}
+    for _, stock := range response {
+        fmt.Println(stock.ToJSON())
+    }
 }
 ```
 
-**Available Intervals**
+### Available Aggregation Intervals
 
 - OneMinutes
 - TwoMinutes
@@ -72,4 +72,8 @@ func main() {
 - FiveDays
 - SevenDays
 - ThirtyDays
-- NinetyDays   
+<<<<<<< HEAD
+- NinetyDays
+=======
+- NinetyDays
+>>>>>>> 167a8f0035846b2e2f3987cda3e79ad09c87d5a3

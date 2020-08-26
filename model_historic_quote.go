@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-// StockQuote data type
-type StockQuote struct {
+// HistoricQuote data type
+type HistoricQuote struct {
 	Symbol   string
 	Date     string
 	Open     float64
@@ -18,14 +18,14 @@ type StockQuote struct {
 }
 
 // ToJSON generates the JSON serialization for the model
-func (data *StockQuote) ToJSON() string {
+func (data *HistoricQuote) ToJSON() string {
 	jsonData, _ := json.Marshal(data)
 	return string(jsonData)
 }
 
 // String generates a debuggable and easy to read string from the model
-func (data *StockQuote) String() string {
-	return fmt.Sprintf("%s => Data=%s, Open=%f, High=%f, Low=%f, Close=%f, AdjClose=%f, Volume=%f",
+func (data *HistoricQuote) String() string {
+	return fmt.Sprintf("HistoricQuote %s => Data=%s, Open=%f, High=%f, Low=%f, Close=%f, AdjClose=%f, Volume=%f",
 		data.Symbol,
 		data.Date,
 		data.Open,
