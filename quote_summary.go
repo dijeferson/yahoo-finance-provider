@@ -1,10 +1,22 @@
 package yahoofinance
 
-import "fmt"
+import "log"
 
-// QuoteSummary ...
-func QuoteSummary(symbols ...string) {
-	x := symbols[0]
+// FetchQuoteSummaries ...
+func FetchQuoteSummaries(symbols ...string) []QuoteSummary {
+	result := make([]QuoteSummary, 0)
+	for _, symbol := range symbols {
+		FetchQuoteSummary(symbol)
+	}
 
-	fmt.Println(x)
+	return result
+}
+
+// FetchQuoteSummary ...
+func FetchQuoteSummary(symbol string) QuoteSummary {
+	result := QuoteSummary{}
+
+	log.Print(symbol)
+
+	return result
 }
