@@ -1,10 +1,12 @@
 package yahoofinance
 
+// QuoteSummary ...
 type QuoteSummary struct {
 	Result []QuoteSummaryResult `json:"result"`
 	Error  interface{}          `json:"error"`
 }
 
+// QuoteSummaryResult ...
 type QuoteSummaryResult struct {
 	SummaryDetail      QuoteSummaryDetail             `json:"summaryDetail"`
 	PageViews          QuoteSummaryPageViews          `json:"pageViews"`
@@ -12,11 +14,13 @@ type QuoteSummaryResult struct {
 	Price              QuoteSummaryPrice              `json:"price"`
 }
 
+// QuoteSummaryFinancialsTemplate ...
 type QuoteSummaryFinancialsTemplate struct {
 	Code   string `json:"code"`
 	MaxAge int64  `json:"maxAge"`
 }
 
+// QuoteSummaryPageViews ...
 type QuoteSummaryPageViews struct {
 	ShortTermTrend string `json:"shortTermTrend"`
 	MidTermTrend   string `json:"midTermTrend"`
@@ -24,6 +28,7 @@ type QuoteSummaryPageViews struct {
 	MaxAge         int64  `json:"maxAge"`
 }
 
+// QuoteSummaryPrice ...
 type QuoteSummaryPrice struct {
 	MaxAge                     int64       `json:"maxAge"`
 	PreMarketChangePercent     float64     `json:"preMarketChangePercent"`
@@ -67,6 +72,7 @@ type QuoteSummaryPrice struct {
 	MarketCap                  int64       `json:"marketCap"`
 }
 
+// QuoteSummaryDetail ...
 type QuoteSummaryDetail struct {
 	MaxAge                       int64       `json:"maxAge"`
 	PriceHint                    int64       `json:"priceHint"`

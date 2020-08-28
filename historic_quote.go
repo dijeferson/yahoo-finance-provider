@@ -2,7 +2,6 @@ package yahoofinance
 
 import (
 	"fmt"
-	"net/http"
 	"strings"
 	"time"
 
@@ -16,26 +15,24 @@ func FetchDailyHistoricQuote(symbol string) ([]HistoricQuote, error) {
 
 // FetchUntilNow fetches stock quote values for a given symbol from a startDate until now, separated by interval.
 func FetchUntilNow(symbol string, startDate int64, interval interval.Interval) ([]HistoricQuote, error) {
-	return Fetch(symbol, startDate, -1, interval)
+	return FetchForInterval(symbol, startDate, -1, interval)
 }
 
-// Fetch fetches stock quotes for a given symbol, in a given timespan (startDate and endDate), separated by interval.
-func Fetch(symbol string, startDate int64, endDate int64, interval interval.Interval) ([]HistoricQuote, error) {
+// FetchForInterval fetches stock quotes for a given symbol, in a given timespan (startDate and endDate), separated by interval.
+func FetchForInterval(symbol string, startDate int64, endDate int64, interval interval.Interval) ([]HistoricQuote, error) {
 	if endDate == -1 {
 		endDate = time.Now().Unix()
 	}
 
 	url := fmt.Sprintf(baseURLs[download], strings.ToUpper(symbol))
 
-	req, _ := http.NewRequest("GET", url, nil)
-	queryParams := req.URL.Query()
-	queryParams.Add("period1", fmt.Sprintf("%v", startDate))
-	queryParams.Add("period2", fmt.Sprintf("%v", endDate))
-	queryParams.Add("interval", fmt.Sprintf("%v", interval))
-	queryParams.Add("events", "history")
-	req.URL.RawQuery = queryParams.Encode()
+	queryParams := make(map[string]string)
+	queryParams["period1"] = fmt.Sprintf("%v", startDate)
+	queryParams["period2"] = fmt.Sprintf("%v", endDate)
+	queryParams["interval"] = fmt.Sprintf("%v", interval)
+	queryParams["events"] = "history"
 
-	contents, err := fetchURL(req)
+	contents, err := processRequest(url, queryParams)
 
 	if err != nil {
 		return nil, err

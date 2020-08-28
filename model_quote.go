@@ -1,5 +1,6 @@
 package yahoofinance
 
+// QuoteResponse ...
 type QuoteResponse struct {
 	Result []Quote     `json:"result"`
 	Error  interface{} `json:"error"`
